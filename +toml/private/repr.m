@@ -41,7 +41,7 @@ function str = repr(obj, parent)
     % numbers
     case { 'double', 'int64' }
       if numel(obj) == 1
-        str = lower(num2str(obj));
+        str = lower(num2str(obj, '%.16g'));
       elseif ndims(obj) == 2 && size(obj, 1) == 1
         cel = arrayfun(@repr, obj, 'uniformoutput', false);
         str = ['[', strjoin(cel, ', '), ']'];
